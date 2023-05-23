@@ -31,6 +31,8 @@ for data in response.get(args.data):
         case 'images':
             key = "{:03}".format(ord) + " - {distribution} | {name}".format(**data)
             value = data.get('slug')
+            if data.get('slug') is None:
+                value = "None"
             ord += 1
     output_json[key] = value
 
